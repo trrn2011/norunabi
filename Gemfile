@@ -56,3 +56,5 @@ gem 'kaminari'
 
 gem 'carrierwave'
 gem 'rmagick'
+
+gem 'xml-simple'

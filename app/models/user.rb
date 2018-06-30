@@ -6,5 +6,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
                     
   
-  mount_uploader :image, ImageUploader                  
+  mount_uploader :image, ImageUploader 
+  has_many :posts
 end

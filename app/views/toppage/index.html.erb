@@ -3,7 +3,10 @@
         <div class="container">
             <div class="text-center">
                 <h1>キャッチフレーズ</h1>
-                <%= link_to "新規登録", new_user_path, class: "btn btn-primary btn-lg" %>
+                <% unless login? %>
+                 <%= link_to "新規登録", new_user_path, class: "btn btn-primary btn-lg" %>
+                <% end %>
+                 
             </div>
         </div>
       

@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180623104127) do
+ActiveRecord::Schema.define(version: 20180630053614) do
+
+  create_table "lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "line_cd"
+    t.string   "side"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.integer  "near_station_id"
+    t.string   "near_station_name"
+    t.integer  "user_id"
+    t.integer  "cloud_level"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "line_id"
+    t.index ["line_id"], name: "index_posts_on_line_id", using: :btree
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -21,4 +42,6 @@ ActiveRecord::Schema.define(version: 20180623104127) do
     t.string   "image"
   end
 
+  add_foreign_key "posts", "lines"
+  add_foreign_key "posts", "users"
 end
