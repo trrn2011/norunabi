@@ -96,6 +96,24 @@ footer{
         
 }
 
+.range{
+        .form-control{
+                padding: 0;
+        }
+        p{ 
+                display: flex;
+                justify-content: space-between;
+                
+                span{ 
+                        width: 23.36px;
+                        font-size: 10px;
+                        
+                }
+                
+        }
+       
+}
+
 
 
 

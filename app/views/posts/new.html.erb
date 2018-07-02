@@ -1,2 +1,50 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="row">
+  <div class="col-sm-offset-3 col-sm-6  col-xs-12">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        新規投稿
+      </div>
+      <div class="panel-body">
+        <%= form_for(@post, url: line_posts_path)do |f| %>
+          <div class="form-group range">
+            <%= f.label :cloud_level, "混雑度(%)" %>
+            <%= f.range_field :cloud_level, in: 0...301, step: 25, class: "form-control" %>
+            <p>
+              <span>0</span>
+              <span>25</span>
+              <span>50</span>
+              <span>75</span>
+              <span>100</span>
+              <span>125</span>
+              <span>150</span>
+              <span>175</span>
+              <span>200</span>
+              <span>225</span>
+              <span>250</span>
+              <span>275</span>
+              <span>300</span>
+            </p>
+          </div>
+          <div class="form-group">
+            <%= f.label :near_station_id, "最寄駅" %>
+            <%= f.select :near_station_id,@stations,  class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :content, "コメント" %>
+            <%= f.text_field :content, class: "form-control" %>
+          </div>
+          
+          
+          
+          
+          <div class="text-center">
+            <%= f.submit '投稿', class: "btn btn-info btn-block" %>
+          </div>
+        <% end %>
+        
+        
+          
+      </div>
+    </div>
+  </div>
+</div>
