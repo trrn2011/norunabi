@@ -5,4 +5,8 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :cloud_level, presence: true
   validates :line_id, presence: true
+  
+  has_many :favorites
+  has_many :favorited_users, through: :favorites, source: :user
+  
 end

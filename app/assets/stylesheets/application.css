@@ -79,7 +79,8 @@ footer {
     font-size: 10px; }
 
 .barnar {
-  background-color: #CCFF99; }
+  background-color: #CCFF99;
+  margin-bottom: 15px; }
   .barnar .btn {
     margin-right: 10%;
     width: 20%; }

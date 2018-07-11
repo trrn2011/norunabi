@@ -27,5 +27,30 @@ class User < ApplicationRecord
     self.follow_lines.include?(line)
   end
   
+  has_many :favorites
+  has_many :favorite_posts, through: :favorites, source: :post
+  
+  def fav(post)
+    unless post.user == self
+      self.favorites.find_or_create_by(post_id: post.id)
+    end
+  
+  end
+  
+  def fav?(post)
+    self.favorite_posts.include?(post)
+  end
+  
+  def count_fav
+    posts = self.posts.all
+    @count_fav = 0
+    posts.each do |post|
+      @count_fav += post.favorited_users.count
+    end
+    
+    return @count_fav
+    
+  end
+  
    
 end

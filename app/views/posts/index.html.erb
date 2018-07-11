@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-sm-offset-3 col-sm-6">
     <%= render 'barnar', line: @line %>
+    <%= link_to '新規投稿', new_line_post_path(@line), class: "btn btn-block btn-info " %>
 
     <%= render 'posts', posts: @posts %>
   </div>

@@ -12,14 +12,19 @@
 
 <div class="panels">
     <div class="panel good-count-panel text-center" >
-     <span>10</span><br>いいね
+     <span><%= @count_fav %></span><br>いいね
     </div>
   
     
   
     <div class="panel ranking-panel text-center">
-      <p>2位</p>
+      <% if @user.count_fav == 0 %>
+        <p>圏外</p>
+      <% else %>
+        <p><%= @rank %>位</p>
+      <% end %>
     </div>
+   
   
 </div>
 

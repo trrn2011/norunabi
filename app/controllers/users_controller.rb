@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @count_fav = @user.count_fav
+    @rank = user_rank(@user)
     
   end
 
@@ -51,6 +53,28 @@ class UsersController < ApplicationController
     unless User.find(params[:id]) == current_user
       redirect_to root_path
     end
+  end
+  
+  def user_rank(user)
+    fav_rank = {}
+    User.all.each do |usr|
+      fav = usr.count_fav
+      id = usr.id
+      fav_rank["#{id}"] = fav
+    end
+    @fav_rank = fav_rank.sort_by {|k, v| -v}
+    @fav_ranking = {}
+    i = 0
+    @fav_rank.each do |block|
+      i = i+1
+      id = block[0]
+      @fav_ranking["#{id}"] = i
+    end
+    
+    key = user.id
+    
+    return @fav_ranking["#{key}"]
+    
   end
   
     

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  get 'favorites/create'
+
+  get 'favorites/destroy'
+
   get 'follows/create'
 
   get 'follows/destroy'
@@ -22,5 +26,5 @@ Rails.application.routes.draw do
   end
   
   resources :follows, only: [:create, :destroy]
-  
+  resources :favorites, only: [:create]
 end

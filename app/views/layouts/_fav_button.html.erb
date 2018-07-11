@@ -1,0 +1,14 @@
+<% unless current_user.fav?(post) %>
+    <%= form_for(current_user.favorites.build) do |f| %>
+    
+        <%= hidden_field_tag :post_id, post.id %>
+        
+        <%= f.submit "いいね", class: "btn btn-danger" %>
+    
+    <% end %>
+<% else %>
+    
+     <btn class="btn btn-info">いいねしました</btn>
+    
+    
+<% end %>

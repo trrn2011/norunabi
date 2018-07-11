@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-sm-offset-3 col-sm-6  col-xs-12">
+    <%= render 'barnar', line:@line %>
     <div class="panel panel-info">
       <div class="panel-heading">
         新規投稿
@@ -26,7 +27,7 @@
             </p>
           </div>
           <div class="form-group">
-            <%= f.label :near_station_id, "最寄駅" %>
+            <%= f.label :near_station_id, "今一番近い駅" %>
             <%= f.select :near_station_id,@stations,  class: "form-control" %>
           </div>
           <div class="form-group">
