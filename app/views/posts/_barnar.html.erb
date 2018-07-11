@@ -1,0 +1,10 @@
+<div class="barnar">
+  <h2><%= line.name %>〜
+      <% if line.side == "up" %>
+        上り方面
+      <% else %>
+        下り方面
+      <% end %>〜
+  </h2>
+  <%= render 'layouts/follow_button', line:line %>
+</div>

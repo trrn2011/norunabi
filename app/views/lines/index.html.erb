@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-offset-3 col-sm-6">
+    <div class="list-group">
+      <% @lines.each do |line| %>
+       <li class="list-group-item">
+        <% if line.side == "up" %>
+          <%= line.name %>
+        
+          <% @lines.each do |side| %>
+            <% if side.name == line.name %>
+              <% if side.side == "up" %>
+                <%= link_to '上り方面', line_posts_path(side) %>
+              <% else %>
+                <%= link_to '下り方面', line_posts_path(side) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+       </li>  
+      <% end %>
+    </div>
+  </div>
+</div>

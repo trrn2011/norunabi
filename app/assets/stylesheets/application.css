@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+.flex-middle {
+  display: flex;
+  text-align: center;
+  align-items: center; }
+
 .navbar {
   background-color: #99FF66;
   border-color: #99FF66;
@@ -72,5 +77,50 @@ footer {
   .range p span {
     width: 23.36px;
     font-size: 10px; }
+
+.barnar {
+  background-color: #CCFF99; }
+  .barnar .btn {
+    margin-right: 10%;
+    width: 20%; }
+
+.media-list {
+  margin-top: 15px; }
+
+.media {
+  border: solid 1px;
+  padding: 2px; }
+  .media .media-left .thumb-post img {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    display: block;
+    margin: 0 auto; }
+  .media .media-body .time {
+    margin-top: 30px;
+    display: inline-block;
+    border-bottom: solid 1px; }
+  .media .media-body h3 {
+    margin-top: 5px; }
+  .media .media-right {
+    text-align: center;
+    vertical-align: middle;
+    padding-right: 2px; }
+    .media .media-right .circle {
+      border-radius: 50%;
+      display: flex;
+      width: 100px;
+      height: 100px;
+      align-items: center;
+      justify-content: center;
+      border: solid 1px; }
+      .media .media-right .circle.red {
+        background-color: red; }
+      .media .media-right .circle.yellow {
+        background-color: #FFCC33; }
+      .media .media-right .circle.green {
+        background-color: #33CC00; }
+    .media .media-right span {
+      font-size: 30px; }
 
 /*# sourceMappingURL=application.css.map */

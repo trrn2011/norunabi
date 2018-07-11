@@ -13,6 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.flex-middle {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        
+} 
+
 .navbar{background-color: #99FF66;
         border-color: #99FF66;
         margin-bottom: 100px;
@@ -114,6 +121,74 @@ footer{
        
 }
 
-
+.barnar {
+        background-color: #CCFF99;
+        h1{
+                
+                
+        }
+        .btn{
+                
+                margin-right: 10%;
+                width: 20%;
+                
+        }
+        
+}
+.media-list{
+        margin-top: 15px;
+}
+.media {
+        border: solid 1px;
+        padding: 2px;
+        .media-left{
+                .thumb-post img{
+                        border-radius: 50%;
+                        width: 75px;
+                        height: 75px;
+                        display: block;
+                        margin: 0 auto;
+                }
+        }
+        .media-body{
+                .time{
+                        margin-top: 30px;
+                        display: inline-block;
+                        border-bottom: solid 1px ;
+                        
+                }
+                h3{
+                        margin-top: 5px;
+                }
+        }
+        .media-right{
+                text-align: center;
+                vertical-align: middle;
+                padding-right: 2px;
+                .circle{
+                        border-radius: 50%;
+                        display: flex;
+                        width: 100px;
+                        height: 100px;
+                        align-items: center;
+                        justify-content: center;
+                        border: solid 1px;
+                        &.red {
+                                background-color: red;
+                        }
+                        &.yellow {
+                                background-color: #FFCC33;
+                        }
+                        &.green {
+                                background-color: #33CC00;
+                        }
+                }
+                
+                
+                span{
+                     font-size: 30px;
+                }
+        }
+}
 
 

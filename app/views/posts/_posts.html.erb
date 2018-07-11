@@ -1,5 +1,43 @@
-<% posts.each do |post| %>
-  <%= post.cloud_level %>%
-  <%= post.near_station_name %>
-  <%= post.near_station_id %>
-<% end %>
+<div class="posts">
+  <ul class="media-list">
+  <% posts.each do |post| %>
+    
+      <li class="media">
+        <div class="media-left text-center">
+          <div class="thumb-post">
+          　<% if post.user.image? %>
+          　　<%= image_tag post.user.image.thumb.url%>
+          　<% else %>
+          　　<%= image_tag 'noimage.gif' %>
+          　<% end %>
+          </div>
+          <%= link_to post.user.name, user_path(post.user) %>
+        </div>
+        <div class="media-body">
+          <span class="time"><%= post.created_at.strftime("%H:%M") %></span>
+          <h4>今１番近い駅：<%= post.near_station_name %></h4>
+          <% if post.content? %>
+            コメント：<span class="coment"><%= post.content %></span>
+          <% end %>
+        </div>
+        <div class="media-right">
+          
+          <div 
+            <% if post.cloud_level >= 200 %>
+                class="circle red"
+            <% elsif post.cloud_level >= 100 && post.cloud_level < 200 %>
+                class="circle yellow"
+            <% else %>
+                class="circle green"
+            <% end %>
+            >
+            <span class="level"><%= post.cloud_level %>%</span>
+          </div>
+        </div>
+      </li>
+    
+  <% end %>
+  
+  </ul>
+  <%= paginate posts %> 
+</div>

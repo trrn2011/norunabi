@@ -1,19 +1,13 @@
 class LinesController < ApplicationController
+  before_action :require_login
   def show
     @line = Line.find(params[:id])
   end
   
-  def new_post
-    
-    
-    
-      
+  def index
+    @lines = Line.all
   end
   
-  def create_post
-   
-    
-  end
   
   
   

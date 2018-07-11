@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @line = Line.find(params[:line_id])
     
-    @posts = @line.posts.all
+    @posts = @line.posts.all.page(params[:page]).per(20)
   end
 
   def new

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  get 'follows/create'
+
+  get 'follows/destroy'
+
   get 'lines/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -13,8 +17,10 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show, :new, :create, :edit, :update]
   resources :posts, only: [:destroy]
-  resources :lines, only: [:show] do
+  resources :lines, only: [:show,:index] do
     resources :posts, only:[:index, :new, :create ]
   end
+  
+  resources :follows, only: [:create, :destroy]
   
 end

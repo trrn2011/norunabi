@@ -3,4 +3,6 @@ class Line < ApplicationRecord
   validates :name, presence: true
   validates :line_cd, presence: true
   validates :side, presence: true
+  
+  has_many :user
 end
