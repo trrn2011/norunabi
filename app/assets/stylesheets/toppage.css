@@ -3,4 +3,18 @@
   margin-top: 50px;
   height: 100%; }
 
+p {
+  margin-top: 0px; }
+
+.img-fluid {
+  border: 1px solid #000000;
+  width: 100%; }
+
+.container .row {
+  margin-top: 80px; }
+
+.discription {
+  display: flex;
+  align-items: center; }
+
 /*# sourceMappingURL=toppage.css.map */
