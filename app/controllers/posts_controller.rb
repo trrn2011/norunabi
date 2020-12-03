@@ -2,6 +2,7 @@ class PostsController < ApplicationController
     require 'xmlsimple'
     require 'uri'
     require 'net/http'
+    require 'csv'
   def index
     @line = Line.find(params[:line_id])
     
@@ -44,14 +45,16 @@ class PostsController < ApplicationController
   def get_stations(line_cd)
    
     num = line_cd
-    uri = URI.parse("http://www.ekidata.jp/api/l/#{num}.xml")
-    xml = Net::HTTP.get(uri)
-    result = XmlSimple.xml_in(xml)
+    p num
+    # uri = URI.parse("http://www.ekidata.jp/api/l/#{num}.xml")
+    # xml = Net::HTTP.get(uri)
+    # result = XmlSimple.xml_in(xml)
+    csv_data = CSV.read('station.csv', headers: true)
     stations = []
     
-    data = result["station"]
-    data.each do |station|
-      stations.push([station["station_name"][0], station["station_cd"][0]])
+    # data = result["station"]
+    csv_data.each do |station|
+      stations.push([station["station_name"], station["station_cd"].to_i]) if station["line_cd"].to_i == num
     end
     
     return stations
@@ -64,14 +67,14 @@ class PostsController < ApplicationController
   def get_station_name(line_cd,near_station_id)
     
     num = line_cd
-    uri = URI.parse("http://www.ekidata.jp/api/l/#{num}.xml")
-    xml = Net::HTTP.get(uri)
-    result = XmlSimple.xml_in(xml)
-    data = result["station"]
-    
+    # uri = URI.parse("http://www.ekidata.jp/api/l/#{num}.xml")
+    # xml = Net::HTTP.get(uri)
+    # result = XmlSimple.xml_in(xml)
+    # data = result["station"]
+    data = CSV.read('station.csv', headers: true)
     data.each do |station|
-      if station["station_cd"][0] == near_station_id.to_s
-        @station_name = station["station_name"][0]
+      if station["station_cd"] == near_station_id.to_s
+        @station_name = station["station_name"]
         break
     
         
